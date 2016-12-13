@@ -59,7 +59,7 @@ namespace CalcEngine
             ce.Test("SEARCH(\"BRA\", \"abracadabra\")", 2);
             ce.Test("SUBSTITUTE(\"abracadabra\", \"a\", \"b\")", "bbrbcbdbbrb");
             ce.Test("T(123)", "123");
-            ce.Test("TEXT(1234, \"n2\")", "1,234.00");
+            ce.Test("TEXT(1234, \"n2\")", (1234).ToString("n2")); // localizable
             ce.Test("TRIM(\"   hello   \")", "hello");
             ce.Test("UPPER(\"abracadabra\")", "ABRACADABRA");
             ce.Test("VALUE(\"1234\")", 1234.0);
