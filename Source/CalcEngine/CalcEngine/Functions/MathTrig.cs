@@ -163,7 +163,7 @@ namespace CalcEngine
         }
         static object Int(List<Expression> p)
         {
-            return (int)((double)p[0]);
+            return Math.Truncate((double)p[0]);
         }
         static object Ln(List<Expression> p)
         {
