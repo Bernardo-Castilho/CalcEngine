@@ -1,6 +1,6 @@
 # CalcEngine
 
-A C# implrmentation of a calculation engine that is small, fast, and extensible.
+A C# implementation of a calculation engine that is small, fast, and extensible.
 
 The engine supports an Excel-like syntax for expressions, and can be extended with custom functions and variables.
 
