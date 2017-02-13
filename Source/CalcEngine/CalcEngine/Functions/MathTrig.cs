@@ -324,7 +324,7 @@ namespace CalcEngine
         }
         static object Trunc(List<Expression> p)
         {
-            return (double)(int)((double)p[0]);
+            return (double)Math.Truncate((double)p[0]);
         }
     }
 }
