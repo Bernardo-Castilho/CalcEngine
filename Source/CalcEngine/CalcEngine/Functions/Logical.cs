@@ -1,11 +1,8 @@
-﻿using System;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace CalcEngine
 {
-    static class Logical
+    public static class Logical
     {
         public static void Register(CalcEngine ce)
         {

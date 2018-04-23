@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace CalcEngine
 {
-    static class MathTrig
+    public static class MathTrig
     {
         public static void Register(CalcEngine ce)
         {

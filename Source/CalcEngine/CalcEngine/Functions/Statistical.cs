@@ -1,11 +1,9 @@
-﻿using System;
-using System.Net;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 namespace CalcEngine
 {
-    static class Statistical
+    public static class Statistical
     {
         public static void Register(CalcEngine ce)
         {

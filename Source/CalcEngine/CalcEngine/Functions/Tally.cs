@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Net;
 using System.Collections;
 
 namespace CalcEngine
 {
-    class Tally
+    public class Tally
     {
         double _sum, _sum2, _cnt, _min, _max;
         bool _numbersOnly;
