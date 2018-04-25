@@ -48,7 +48,7 @@ namespace CalcEngine
             ce.RegisterFunction("RAND", 0, Rand);
             ce.RegisterFunction("RANDBETWEEN", 2, RandBetween);
             //ce.RegisterFunction("ROMAN", Roman, 1);
-            //ce.RegisterFunction("ROUND", Round, 1);
+            ce.RegisterFunction("ROUND", 2, Round);
             //ce.RegisterFunction("ROUNDDOWN", RoundDown, 1);
             //ce.RegisterFunction("ROUNDUP", RoundUp, 1);
             //ce.RegisterFunction("SERIESSUM", SeriesSum, 1);
@@ -184,6 +184,14 @@ namespace CalcEngine
         {
             return Math.Pow((double)p[0], (double)p[1]);
         }
+
+        static object Round(List<Expression> p)
+        {
+            if (p.Count != 2)
+                throw new Exception("Invalid number of params");
+            return Math.Round((double)p[0], (int)p[1]);
+        }
+
         static Random _rnd = new Random();
         static object Rand(List<Expression> p)
         {
