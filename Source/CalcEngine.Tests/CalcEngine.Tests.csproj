@@ -63,7 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MathTrigTests.cs" />
+    <Compile Include="ComplexExcelFunctionTests.cs" />
+    <Compile Include="BasicExcelFunctionTests.cs" />
+    <Compile Include="IntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
