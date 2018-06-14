@@ -66,12 +66,14 @@ namespace CalcEngine
                 if (!object.Equals(result, expectedResult))
                 {
                     var msg = string.Format("error: {0} gives {1}, should give {2}", expression, result, expectedResult);
-                    Debug.Assert(false, msg);
+                    //Debug.Assert(false, msg);
+                    throw new Exception(msg);
                 }
             }
             catch (Exception x)
             {
-                Debug.Assert(false, x.Message);
+                //Debug.Assert(false, x.Message);
+                throw new Exception(x.Message);
             }
         }
         public class Person

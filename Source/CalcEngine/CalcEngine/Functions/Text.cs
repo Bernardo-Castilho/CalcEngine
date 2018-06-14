@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Globalization;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CalcEngine
 {
-    static class Text
+    public static class Text
     {
         public static void Register(CalcEngine ce)
         {
