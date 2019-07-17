@@ -55,5 +55,13 @@ namespace CalcEngine.Tests
         {
             Eval("=(2*SUM(2,4)+AVERAGE(1,2,3))/2", 7);
         }
+        [Fact]
+        public void EvaluatesStandardDeviationFunction()
+        {
+            Eval("=STDEV(11,12)", 0.5);
+            Eval("=STDEV(-5, 1, 8, 7, 2)", 4.6733285782191691);
+            Eval("=STDEV(17)", 0);
+        }
+
     }
 }

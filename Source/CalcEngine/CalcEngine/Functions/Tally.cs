@@ -102,7 +102,7 @@ namespace CalcEngine
         public double Std()
         {
             var avg = Average();
-            return _cnt <= 1 ? 0 : Math.Sqrt((_sum2 / _cnt - avg * avg) * _cnt / (_cnt - 1));
+            return _cnt <= 1 ? 0 : Math.Sqrt((_sum2 / _cnt - avg * avg) * _cnt / _cnt);
         }
     }
 }
