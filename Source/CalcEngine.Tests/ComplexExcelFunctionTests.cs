@@ -35,7 +35,13 @@ namespace CalcEngine.Tests
             Eval("=AVERAGE(1)", 1d);
             Assert.Throws<Exception>(() => Eval("=AVERAGE()", 0d));
         }
-
+        [Fact]
+        public void EvaluatesMedianFunction()
+        {
+            Eval("=MEDIAN(1,2,5)", 2);
+            Eval("=MEDIAN(2,6)", 4);
+            Eval("=MEDIAN(17)", 17);
+        }
         [Fact]
         public void EvaluatesRoundFunction()
         {
@@ -62,6 +68,7 @@ namespace CalcEngine.Tests
             Eval("=STDEV(-5, 1, 8, 7, 2)", 4.6733285782191691);
             Eval("=STDEV(17)", 0);
         }
+
 
     }
 }

@@ -50,6 +50,7 @@ namespace CalcEngine
             ce.RegisterFunction("MAX", 1, int.MaxValue, Max);
             ce.RegisterFunction("MAXA", 1, int.MaxValue, MaxA);
             //MEDIAN	Returns the median of the given numbers
+            ce.RegisterFunction("MEDIAN", 1, int.MaxValue, Median);
             ce.RegisterFunction("MIN", 1, int.MaxValue, Min);
             ce.RegisterFunction("MINA", 1, int.MaxValue, MinA);
             //MODE	Returns the most common value in a data set
@@ -170,6 +171,10 @@ namespace CalcEngine
         static object MaxA(List<Expression> p)
         {
             return GetTally(p, false).Max();
+        }
+        static object Median(List<Expression> p)
+        {
+            return GetTally(p, true).Median();
         }
         static object Min(List<Expression> p)
         {
