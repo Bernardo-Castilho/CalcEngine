@@ -64,6 +64,7 @@
     <Compile Include="Expression.cs" />
     <Compile Include="ExpressionCache.cs" />
     <Compile Include="FunctionDefinition.cs" />
+    <Compile Include="Functions\ExtendedTally.cs" />
     <Compile Include="Functions\Logical.cs" />
     <Compile Include="Functions\MathTrig.cs" />
     <Compile Include="Functions\Statistical.cs" />

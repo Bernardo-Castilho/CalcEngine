@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using CalcEngine.Functions;
 
 namespace CalcEngine
 {
@@ -49,7 +50,7 @@ namespace CalcEngine
             //LOGNORMDIST	Returns the cumulative lognormal distribution
             ce.RegisterFunction("MAX", 1, int.MaxValue, Max);
             ce.RegisterFunction("MAXA", 1, int.MaxValue, MaxA);
-            //MEDIAN	Returns the median of the given numbers
+            ce.RegisterFunction("MEDIAN", 1, int.MaxValue, Median);
             ce.RegisterFunction("MIN", 1, int.MaxValue, Min);
             ce.RegisterFunction("MINA", 1, int.MaxValue, MinA);
             //MODE	Returns the most common value in a data set
@@ -87,6 +88,11 @@ namespace CalcEngine
             ce.RegisterFunction("VARPA", 1, int.MaxValue, VarPA);
             //WEIBULL	Returns the Weibull distribution
             //ZTEST	Returns the one-tailed probability-value of a z-test
+        }
+
+        private static object Median(List<Expression> parameters)
+        {
+            return GetExtendedTally(parameters, true).Median();
         }
 
 #if DEBUG
@@ -216,6 +222,16 @@ namespace CalcEngine
         static Tally GetTally(List<Expression> p, bool numbersOnly)
         {
             var tally = new Tally(numbersOnly);
+            foreach (Expression e in p)
+            {
+                tally.Add(e);
+            }
+            return tally;
+        }
+
+        public static ExtendedTally GetExtendedTally(List<Expression> p, bool numbersOnly)
+        {
+            var tally = new ExtendedTally(numbersOnly);
             foreach (Expression e in p)
             {
                 tally.Add(e);
