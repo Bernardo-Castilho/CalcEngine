@@ -5,8 +5,8 @@ namespace CalcEngine
 {
     public class Tally
     {
-        double _sum, _sum2, _cnt, _min, _max;
-        bool _numbersOnly;
+        protected double _sum, _sum2, _cnt, _min, _max;
+        protected bool _numbersOnly;
 
         public Tally(bool numbersOnly)
         {
@@ -32,7 +32,7 @@ namespace CalcEngine
             // handle expressions
             AddValue(e.Evaluate());
         }
-        public void AddValue(object value)
+        public virtual void AddValue(object value)
         {
             // conversions
             if (!_numbersOnly)
