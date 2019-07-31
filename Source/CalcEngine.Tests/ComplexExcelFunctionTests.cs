@@ -55,5 +55,13 @@ namespace CalcEngine.Tests
         {
             Eval("=(2*SUM(2,4)+AVERAGE(1,2,3))/2", 7);
         }
+
+        [Fact]
+        public void EvaluatesMedianFunction()
+        {
+            Eval("=MEDIAN(1,2,5)", 2);
+            Eval("=MEDIAN(2,6)", 4);
+            Eval("=MEDIAN(17)", 17);
+        }
     }
 }
