@@ -66,6 +66,7 @@ namespace CalcEngine
             //POISSON	Returns the Poisson distribution
             //PROB	Returns the probability that values in a range are between two limits
             //QUARTILE	Returns the quartile of a data set
+            ce.RegisterFunction("RANGE", 1, int.MaxValue, Range);
             //RANK	Returns the rank of a number in a list of numbers
             //RSQ	Returns the square of the Pearson product moment correlation coefficient
             //SKEW	Returns the skewness of a distribution
@@ -184,6 +185,10 @@ namespace CalcEngine
         static object MinA(List<Expression> p)
         {
             return GetTally(p, false).Min();
+        }
+        static object Range(List<Expression> p)
+        {
+            return GetTally(p, true).Range();
         }
         static object StDev(List<Expression> p)
         {
