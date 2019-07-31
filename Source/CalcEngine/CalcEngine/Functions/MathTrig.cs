@@ -48,7 +48,7 @@ namespace CalcEngine
             ce.RegisterFunction("RAND", 0, Rand);
             ce.RegisterFunction("RANDBETWEEN", 2, RandBetween);
             //ce.RegisterFunction("ROMAN", Roman, 1);
-            ce.RegisterFunction("ROUND", 2, Round);
+            ce.RegisterFunction("ROUND", 1, int.MaxValue, Round);
             //ce.RegisterFunction("ROUNDDOWN", RoundDown, 1);
             //ce.RegisterFunction("ROUNDUP", RoundUp, 1);
             //ce.RegisterFunction("SERIESSUM", SeriesSum, 1);
@@ -68,6 +68,7 @@ namespace CalcEngine
             ce.RegisterFunction("TAN", 1, Tan);
             ce.RegisterFunction("TANH", 1, Tanh);
             ce.RegisterFunction("TRUNC", 1, Trunc);
+			ce.RegisterFunction("WEIGHTED", 2, Weighted);
         }
 #if DEBUG
         public static void Test(CalcEngine ce)
@@ -184,14 +185,6 @@ namespace CalcEngine
         {
             return Math.Pow((double)p[0], (double)p[1]);
         }
-
-        static object Round(List<Expression> p)
-        {
-            if (p.Count != 2)
-                throw new Exception("Invalid number of params");
-            return Math.Round((double)p[0], (int)p[1]);
-        }
-
         static Random _rnd = new Random();
         static object Rand(List<Expression> p)
         {
@@ -200,6 +193,15 @@ namespace CalcEngine
         static object RandBetween(List<Expression> p)
         {
             return _rnd.Next((int)(double)p[0], (int)(double)p[1]);
+        }
+        static object Round(List<Expression> p)
+        {
+            var toDecimals = 0;
+            if (p.Count > 1)
+            {
+                toDecimals = (int)p[p.Count - 1];
+            }
+            return Math.Round(p[0], toDecimals);
         }
         static object Sign(List<Expression> p)
         {
@@ -331,6 +333,10 @@ namespace CalcEngine
         static object Trunc(List<Expression> p)
         {
             return (double)Math.Truncate((double)p[0]);
+        }
+        static object Weighted(List<Expression> p)
+        {
+            return p[0] * p[1];
         }
     }
 }

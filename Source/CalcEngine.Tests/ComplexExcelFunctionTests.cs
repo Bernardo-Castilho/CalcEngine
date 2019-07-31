@@ -40,8 +40,18 @@ namespace CalcEngine.Tests
         public void EvaluatesRoundFunction()
         {
             Eval("=ROUND(1.20,2)", 1.2d);
-            Assert.Throws<Exception>(() => Eval("=ROUND(1.20)", 0d));
+            Eval("=ROUND(1.20)", 1d);
+            Eval("=ROUND(1.50)", 2d);
             Assert.Throws<Exception>(() => Eval("=ROUND()", 0d));
+        }
+
+        [Fact]
+        public void EvaluatesWEIGHTEDFunction()
+        {
+            Eval("=WEIGHTED(5, 5)", 25d);
+            Eval("=WEIGHTED(5, 0)", 0d);
+            Assert.Throws<Exception>(() => Eval("=WEIGHTED()", 0d));
+            Assert.Throws<Exception>(() => Eval("=WEIGHTED(1)", 0d));
         }
 
         [Fact]
