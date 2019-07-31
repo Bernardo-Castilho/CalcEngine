@@ -40,10 +40,11 @@ namespace CalcEngine.Tests
         public void EvaluatesRoundFunction()
         {
             Eval("=ROUND(1.20,2)", 1.2d);
-            Assert.Throws<Exception>(() => Eval("=ROUND(1.20)", 0d));
+            Eval("=ROUND(1.20)", 1d);
+            Eval("=ROUND(1.50)", 2d);
             Assert.Throws<Exception>(() => Eval("=ROUND()", 0d));
         }
-
+        
         [Fact]
         public void EvaluatesSumProductFunction()
         {

@@ -16,6 +16,7 @@ namespace CalcEngine.Tests
             calcEngine.Test("=AVERAGE(1,2)", 1.5);
             calcEngine.Test("CEILING(1.8)", Math.Ceiling(1.8));
             calcEngine.Test("=COUNT(1,2,3)", 3);
+            calcEngine.Test("=ROUND(1,1)", 1);
         }
 
         [Fact(Skip = "Should not be run, this if only done for doc purpose")]
