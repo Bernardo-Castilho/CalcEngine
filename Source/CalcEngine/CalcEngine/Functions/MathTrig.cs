@@ -17,7 +17,7 @@ namespace CalcEngine
             ce.RegisterFunction("ATAN", 1, Atan);
             ce.RegisterFunction("ATAN2", 2, Atan2);
             //ce.RegisterFunction("ATANH", Atanh, 1);
-            ce.RegisterFunction("CEILING", 1, Ceiling);
+            ce.RegisterFunction("CEILING", 1, 2, Ceiling);
             //ce.RegisterFunction("COMBIN", Combin, 1);
             ce.RegisterFunction("COS", 1, Cos);
             ce.RegisterFunction("COSH", 1, Cosh);
@@ -26,7 +26,7 @@ namespace CalcEngine
             ce.RegisterFunction("EXP", 1, Exp);
             //ce.RegisterFunction("FACT", Fact, 1);
             //ce.RegisterFunction("FACTDOUBLE", FactDouble, 1);
-            ce.RegisterFunction("FLOOR", 1, Floor);
+            ce.RegisterFunction("FLOOR", 1, 2, Floor);
             //ce.RegisterFunction("GCD", Gcd, 1);
             ce.RegisterFunction("INT", 1, Int);
             //ce.RegisterFunction("LCM", Lcm, 1);
@@ -142,7 +142,21 @@ namespace CalcEngine
         }
         static object Ceiling(List<Expression> p)
         {
-            return Math.Ceiling((double)p[0]);
+            var value = (double)p[0];
+
+            if (p.Count == 1)
+            {
+                return Math.Ceiling(value);
+            }
+
+            var significance = (double)p[1];
+
+            if (value > 0 && significance < 0)
+            {
+                throw new ArgumentException("Value is positive and significance is negative!");
+            }
+
+            return Math.Ceiling(value / significance) * significance;
         }
         static object Cos(List<Expression> p)
         {
@@ -158,7 +172,21 @@ namespace CalcEngine
         }
         static object Floor(List<Expression> p)
         {
-            return Math.Floor((double)p[0]);
+            var value = (double)p[0];
+
+            if (p.Count == 1)
+            {
+                return Math.Floor(value);
+            }
+
+            var significance = (double)p[1];
+
+            if (value > 0 && significance < 0)
+            {
+                throw new ArgumentException("Value is positive and significance is negative!");
+            }
+
+            return Math.Floor(value / significance) * significance;
         }
         static object Int(List<Expression> p)
         {
