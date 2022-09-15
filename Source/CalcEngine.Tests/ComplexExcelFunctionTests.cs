@@ -73,5 +73,28 @@ namespace CalcEngine.Tests
             Eval("=MEDIAN(2,6)", 4);
             Eval("=MEDIAN(17)", 17);
         }
+
+        [Fact]
+        public void EvaluatesFloorFunction()
+        {
+            Eval("=FLOOR(2.45)", 2);
+            Eval("=FLOOR(2.45, 1)", 2);
+            Eval("=FLOOR(2.45, 2)", 2);
+            Eval("=FLOOR(-2.45, -2)", -2);
+
+            Assert.Throws<Exception>(() => Eval("=FLOOR(2.45, -2)", 0));
+        }
+
+        [Fact]
+        public void EvaluatesCeilingFunction()
+        {
+            Eval("=CEILING(2.45)", 3);
+            Eval("=CEILING(2.45, 1)", 3);
+            Eval("=CEILING(2.45, 2)", 4);
+            Eval("=CEILING(-2.45, -2)", -4);
+            Eval("=CEILING(2.45, 0.2)", 2.6);
+
+            Assert.Throws<Exception>(() => Eval("=CEILING(2.45, -2)", 0));
+        }
     }
 }
