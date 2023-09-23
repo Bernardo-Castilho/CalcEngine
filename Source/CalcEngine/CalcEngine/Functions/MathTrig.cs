@@ -213,7 +213,7 @@ namespace CalcEngine
         {
             return Math.Pow((double)p[0], (double)p[1]);
         }
-        static Random _rnd = new Random();
+        static readonly Random _rnd = new Random();
         static object Rand(List<Expression> p)
         {
             return _rnd.NextDouble();
