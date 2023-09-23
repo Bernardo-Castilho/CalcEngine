@@ -9,8 +9,8 @@ using System.Reflection;
 namespace CalcEngine
 {
     /// <summary>
-	/// Base class that represents parsed expressions.
-	/// </summary>
+    /// Base class that represents parsed expressions.
+    /// </summary>
     /// <remarks>
     /// For example:
     /// <code>
@@ -24,7 +24,7 @@ namespace CalcEngine
         #region ** fields
 
         internal Token _token;
-        static CultureInfo _ci = CultureInfo.InvariantCulture;
+        static readonly CultureInfo _ci = CultureInfo.InvariantCulture;
 
         #endregion
 
