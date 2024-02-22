@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Title>CalcEngine.Net</Title>
-    <Description>A Calculation Engine for .NET</Description>
+    <Description>A calculation engine for .NET</Description>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>CalcEngine.Net</PackageId>
     <Authors>Bernardo Castilho</Authors>
