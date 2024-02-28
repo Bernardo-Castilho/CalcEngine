@@ -229,7 +229,7 @@ namespace CalcEngine
             {
                 toDecimals = (int)p[p.Count - 1];
             }
-            return Math.Round(p[0], toDecimals);
+            return Math.Round(p[0], toDecimals, MidpointRounding.AwayFromZero);
         }
         static object Sign(List<Expression> p)
         {
