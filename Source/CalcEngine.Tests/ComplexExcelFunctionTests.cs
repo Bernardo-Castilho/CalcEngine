@@ -42,6 +42,7 @@ namespace CalcEngine.Tests
             Eval("=ROUND(1.20,2)", 1.2d);
             Eval("=ROUND(1.20)", 1d);
             Eval("=ROUND(1.50)", 2d);
+            Eval("=ROUND(2.50)", 3d);
             Assert.Throws<Exception>(() => Eval("=ROUND()", 0d));
         }
 
