@@ -80,10 +80,12 @@ namespace CalcEngine
             ce.Test("ATAN(.23)", Math.Atan(.23));
             ce.Test("ATAN2(1,2)", Math.Atan2(1, 2));
             ce.Test("CEILING(1.8)", Math.Ceiling(1.8));
+            ce.Test("CEILING(7.58, 0.01)", 7.58);
             ce.Test("COS(1.23)", Math.Cos(1.23));
             ce.Test("COSH(1.23)", Math.Cosh(1.23));
             ce.Test("EXP(1)", Math.Exp(1));
             ce.Test("FLOOR(1.8)", Math.Floor(1.8));
+            ce.Test("FLOOR(7.52, 0.01)", 7.52);
             ce.Test("INT(1.8)", 1);
             ce.Test("LOG(1.8)", Math.Log(1.8, 10)); // default base is 10
             ce.Test("LOG(1.8, 4)", Math.Log(1.8, 4)); // custom base
@@ -156,7 +158,7 @@ namespace CalcEngine
                 throw new ArgumentException("Value is positive and significance is negative!");
             }
 
-            return Math.Ceiling(value / significance) * significance;
+            return (double)(Math.Ceiling((decimal)value / (decimal)significance) * (decimal)significance);
         }
         static object Cos(List<Expression> p)
         {
@@ -186,7 +188,7 @@ namespace CalcEngine
                 throw new ArgumentException("Value is positive and significance is negative!");
             }
 
-            return Math.Floor(value / significance) * significance;
+            return (double)(Math.Floor((decimal)value / (decimal)significance) * (decimal)significance);
         }
         static object Int(List<Expression> p)
         {
